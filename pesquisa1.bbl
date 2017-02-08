@@ -1,0 +1,54 @@
+\begin{thebibliography}{1}
+
+\bibitem{processadores_arduino}
+{\em Arduino Products Comparison}.
+\newblock Disponível em \url{https://www.arduino.cc/en/Products/Compare},
+  Acessado em 08-02-2017.
+
+\bibitem{atmel}
+{\em Atmel Products}.
+\newblock Disponível em
+  \url{http://www.atmel.com/pt/br/products/microcontrollers/avr/default.aspx},
+  Acessado em 08-02-2017.
+
+\bibitem{endian}
+{\em Big and Little Endian}.
+\newblock Disponível em
+  \url{https://www.cs.umd.edu/class/sum2003/cmsc311/Notes/Data/endian.html},
+  Acessado em 08-02-2017.
+
+\bibitem{technopedia}
+{\em Floating-Point Unit (FPU)}.
+\newblock Disponível em
+  \url{https://www.techopedia.com/definition/2865/floating-point-unit-fpu},
+  Acessado em 08-02-2017.
+
+\bibitem{memoria}
+{\em Os tipos de memória encontrados em microcontroladores}.
+\newblock Disponível em
+  \url{http://labdegaragem.com/profiles/blogs/artigo-os-tipos-de-mem-ria-encontrados-em-microcontroladores},
+  Acessado em 08-02-2017.
+
+\bibitem{real}
+{\em REAL data type}.
+\newblock Disponível em
+  \url{http://docs.oracle.com/javadb/10.8.3.0/ref/rrefsqlj14122.html}, Acessado
+  em 08-02-2017.
+
+\bibitem{thumb}
+{\em The Thumb instruction set}.
+\newblock Disponível em
+  \url{http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.ddi0210c/CACBCAAE.html},
+  Acessado em 08-02-2017.
+
+\bibitem{variaveis}
+Adriano~Joaquim de~Oliveira~Cruz.
+\newblock Tipos de dados, constantes e variáveis.
+\newblock 1997.
+
+\bibitem{projeto_robos}
+Profs. Nobuo~Oki e~Suely Cunha Amaro~Mantovani.
+\newblock Teee i- projeto de robôs móveis.
+\newblock 2013.
+
+\end{thebibliography}

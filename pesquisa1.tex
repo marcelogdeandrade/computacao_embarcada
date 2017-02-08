@@ -1,0 +1,85 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage{cite}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+\newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1: #2}\vspace{.5em}\hrule\vspace{.10in}}
+\renewcommand\part[1]{\vspace{.10in}\textbf{(#1)}}
+\newcommand\algorithm{\vspace{.10in}\textbf{Algorithm: }}
+\newcommand\principaisfabricantes{\vspace{.10in}\textbf{Quais são os principais fabricantes de microcontrolador? }}
+\newcommand\listaprocessadores{\vspace{.10in}\textbf{Liste os processadores utilizados por pelo menos 3 tipos de Arduino, e faça um
+		comparativo entre eles. }}
+\newcommand\biglittleendian{\vspace{.10in}\textbf{O que é bigedian e little endian (Endianness)? }}
+\newcommand\thumb{\vspace{.10in}\textbf{O que é o ARM Thumb Struction Set? }}
+\newcommand\fpu{\vspace{.10in}\textbf{O que é Float Point Unit (FPU) e qual sua utilização? }}
+\newcommand\memory{\vspace{.10in}\textbf{Classifique os tipos de memórias de um uC }}
+\newcommand\variaveis{\vspace{.10in}\textbf{Qual a diferença entre os tipos de variáveis : int, char, float, real?}}
+\pagestyle{fancyplain}
+\lhead{\textbf{\NAME\ }}
+\chead{\textbf{Pesquisa
+		Arquitetura uC}}
+\rhead{\today}
+\begin{document}\raggedright
+%Section A==============Change the values below to match your information==================
+\newcommand\NAME{Marcelo G de Andrade}  % your name
+\newcommand\HWNUM{1}              % the homework number
+%Section B==============Put your answers to the questions below here=======================
+
+% no need to restate the problem --- the graders know which problem is which,
+% but replacing "The First Problem" with a short phrase will help you remember
+% which problem this is when you read over your homeworks to study.
+
+\question{1}{Visão Geral} 
+
+\part{1} \principaisfabricantes
+
+ Como é citado em \cite{projeto_robos}, os principais fabricantes de microcontroladores em 2013 eram: Analog Device, Atmel, Cirrus Logic, Cygmal, Freescale, Fijitsu, Infineon, Intel, Maxim, Microchip, NS, Phillips, Rabbit Semicondutor, Renesas, ST, Texas Instruments, Toshiba, Ubicom e Zilog. 
+ 
+
+\part{2} \listaprocessadores
+
+Irei comparar os processadores dos seguintes arduinos: Arduino Leonardo, Arduino Uno e Arduino MEGA.
+
+Como é explicado em \cite{processadores_arduino}, o processador utilizado no Arduino Leonardo é o ATmega32U4 da Atmel. Já o processador utilizado no Arduino Nano é o ATmega328 e por fim, o processador do Arduino MEGA é o ATmega2560. 
+
+Como pode ser visto em \cite{atmel}, os dois primeiros processadores citados acima tem a mesma capacidade de Flash, mas a frequência máxima de operação do ATmega328 acaba sendo um pouco maior. O terceiro processador listado tem uma frequência de operação máxima parecida, mas sua capacidade Flash é muito maior.
+
+Os processadores listados acima são, à risca, microcontroladores integrados ao Arduino, mas cada um deles tem sua própria CPU, e nos 3, segundo \cite{atmel}, é a mesma, uma CPU 8-bit AVR.
+
+\part{4} \biglittleendian
+
+Segundo \cite{endian}, bigedian e little edian são jeitos diferentes de se endereçar memória, sendo bigedian o método que endereça a memória com o byte mais significativo no menor endereço, e little endian o método que endereça a memória com o byte menos significativo no menor endereços, ou seja, em cada método, o sentido em que a memória é endereçada é o oposto do outro método.
+
+\question{2}{ARM}
+
+\part{2} \thumb
+
+Como é definido em \cite{thumb}, ARM Thumb Struction Set é o conjunto de instruções mais comuns usadas em ARMs de 32 bits. 
+
+\part{3} \fpu
+
+Float Point Unit é, segundo \cite{technopedia}, um circuito integrado que cuida de todas operações matemáticas que são relacionadas com pontos flutuantes. É uma unidade lógica feita especialmente para trabalhar com pontos flutuantes e nada mais.
+
+\question{3}{Tópicos extras}
+
+
+\part{3} \memory
+
+Segundo a análise em \cite{memoria}, podemos dividir a memória de um microcontrolador em 3 diferentes grupos: memória RAM, memória ROM, e memórias híbridas. A memória RAM engloba dois tipos de memória, SRAM (Static RAM) e DRAM (Dynamic RAM). Ja a memória ROM engloba também dois tipos de memória, a PROM (Programmable Read-Only Memory) e a EPROM(Erasable-and-Programmable Read-Only Memory). Por fim, as memórias híbridas englobam três tipos de memória, a Flash, EEPROM (Electrically-Erasable-Programmable) e a NVRAM(Non-Volatile RAM).
+
+\part{4} \variaveis
+
+Os quatro tipos de variáveis são analisados em \cite{variaveis}.
+
+Começando por int, são valores numéricos sem ponto decimal, procedidos ou não por sinal. O tipo char é um único caractere, podendo participar de operações aritméticas. Uma constante de tamanho igual a um byte pode ser usada para definir uma constante desse tipo. A variável float é uma constante de ponto flutuante com ponto decimal, com seis casas de precisão. Por fim, a variável real, segundo \cite{real}, representa 4 bytes de armazenamento para variáveis de ponto flutuante usando a notação IEEE.
+
+\bibliography{ref}{}
+\bibliographystyle{plain}
+\end{document}
