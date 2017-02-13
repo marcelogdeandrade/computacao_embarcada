@@ -1,0 +1,106 @@
+\documentclass[11pt]{article}
+
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage{cite}
+\usepackage{indentfirst}
+\usepackage{ragged2e}
+
+\setlength\RaggedRightParindent{15pt}
+
+\setlength\parindent{24pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+
+\newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1: #2}\vspace{.5em}\hrule\vspace{.10in}}
+\renewcommand\part[1]{\vspace{.10in}\textbf{(#1)}}
+\newcommand\algorithm{\vspace{.10in}\textbf{Algorithm: }}
+\newcommand\crosscompiler{\vspace{.10in}\textbf{O que é cross compilação (cross-compiler) ? }}
+\newcommand\rtos{\vspace{.10in}\textbf{O que é um RTOS, descreva uma utilizações. }}
+\newcommand\dsp{\vspace{.10in}\textbf{O que é um DSP ? O que difere de um microcontrolador ? }}
+\newcommand\differencec{\vspace{.10in}\textbf{Qual a diferença entre C e C++ ? }}
+\newcommand\analise{\vspace{.10in}\textbf{Analise o texto a seguir extraído do livro : “Introduction to Embedded Systems - A CyberPhysical Systems Approach (7.2.1)” e faça uma resenha sobre paralelismo e concorrência}}
+\pagestyle{fancyplain}
+\lhead{\textbf{\NAME\ }}
+\chead{\textbf{Fluxo de projeto embarcados}}
+\rhead{\today}
+
+
+\begin{document}\raggedright
+%Section A==============Change the values below to match your information==================
+\newcommand\NAME{Marcelo G de Andrade}  % your name
+\newcommand\HWNUM{1}              % the homework number
+%Section B==============Put your answers to the questions below here=======================
+
+% no need to restate the problem --- the graders know which problem is which,
+% but replacing "The First Problem" with a short phrase will help you remember
+% which problem this is when you read over your homeworks to study.
+
+\question{1}{Cross-compiler}
+
+\part{1} \crosscompiler
+
+
+\RaggedRight Como é explicado em \cite{cross_compiler}, cross compilação é o ato de desenvolver um binário de um programa em uma plataforma que irá rodar em uma outra, a primeira plataforma sendo a de desenvolvimento e a sengunda, a plataforma destinatária. Para que esse programa seja feito, é necessário um cross compiler, compilador capaz de compilar um código para diversas plataformas, por exemplo: um compilador que roda em Windows e gerá um código para Android. 
+
+\raggedright
+\question{2}{Embarcados}
+
+\part{1} \rtos
+
+\RaggedRight
+Segundo \cite{rtos}, RTOS é uma sigla que significa Real Time Operating System, ou seja, um sistema operacional onde o scheduler, programa responsável por cuidar dos intervalos entre multi-threads, tenha um tempo de resposta pré-definido. Esse tipo de sistema operacional é muito comum em sistemas embarcados, pois muitas vezes os sistemas embarcados acabam tendo necessidades em tempo real, sendo assim necessário um sistema operacional que consiga optimizar as multi-tarefas para
+essas necessidades.
+
+\raggedright
+\part{3} \dsp
+
+\RaggedRight
+Como é dito em \cite{dsp}, DSP é uma sigla que significa Digital Signal Processors. DSPs são microprocessadores especializados em processamento de sinais digitais. Os DSPs são comparados a Microcontroladores em \cite{diffence_dsp}.Por serem especializados nessa área, acabam tendo uma velocidade de processamento muito maior que microcontroladores para essas tarefas. Microcontroladores são circuitos integrados menos especializados, com processadores, memória, periféricos. Já os DSPs são simplesmente processadores que  apenas alteram
+sinais digitais.
+
+\raggedright
+\question{3}{C}
+
+
+\part{1} \differencec
+
+\RaggedRight
+Segundo as comparações em \cite{difference_c_1} e \cite{difference_c_2}, C e C++ são linguagens muito parecidas em certos aspectos, sendo o C++ uma versão posterior ao C. A diferença mais notável entre as duas linguagens
+é o fato do C ser uma linguagem estrutural, já C++, uma linguagem orientada a objetos, ou seja, o C++ é considerado uma versão atualizada e orientada a objetos do C.
+Por ser uma versão do C com mais funcionalidades, a maioria dos compiladores de C++ também compilam C. Mesmo sendo uma versão de C atualizada, o C++ é
+considerado uma linguagem de mais alto nível que o C, tendo assim diferentes aplicações.
+
+\raggedright
+\question{4}{Paralelismo vs Concorrência}
+
+\part{1} \analise
+
+\RaggedRight
+O texto começa explicando brevemente o conceito de paralelismo e concorrência, dizendo que um programa concorrente seria aquele que diferentes partes
+do programa são executadas ao mesmo tempo conceitualmente, já um programa paralelo seria aquele em que suas partes são executadas fisicamente ao mesmo tempo,
+ou seja em hardwares distintos.
+
+Após explicar brevemente esses dois conceitos, o autor analisa suas aplicações em duas diferentes linguagens, o C e o Java. É apresentado um novo conceito
+chamado de linguagem imperativa, uma linguagem que é executada como uma sequência de operações. o C é uma dessas linguagens, e não suporta nativamente
+programs concorrentes. Já o Java tem suporte nativo para esse tipo de execução.
+
+Em seguida é mostrado um exemplo de código C para explicar um programa dependente e independente, acrescentando que microprocessadores atuais suportam
+execução em pararelo, analisando o código para definir se suas instruções são independentes, se sim, as executam de forma paralela. O objetivo disso
+é melhorar a perfomance, com a ideia de que terminar uma tarefa antes é melhor do que terminá-la depois.
+
+O autor fala então na aplicação dessa ideia em sistemas embarcados, dizendo que concorrência tem um papel muito mais importante do que melhorar a
+perfomance, controlando o tempo de saída de cada tarefa do sistema, pois a ordem de tarefas no mundo físico é essencial.
+
+Ele termina o capítulo retomando a ideia que, em aplicações como sistemas embarcados, não há sempre a necessidade que programas sejam executados ao
+mesmo tempo, somente a necessidade que eles sejam executados rapidamente, sendo assim muito interessante combinar concorrência para ordenar e organizar
+as tarefas, e paralelismo no hardware para otimização do programa.
+
+\bibliography{ref}{}
+\bibliographystyle{plain}
+\end{document}

@@ -1,0 +1,37 @@
+\begin{thebibliography}{1}
+
+\bibitem{difference_c_2}
+{\em 10 Major Differences Between C And C++ 344}.
+\newblock Disponível em
+  \url{http://durofy.com/10-major-differences-between-c-and-c/}, Acessado em
+  12-02-2017.
+
+\bibitem{cross_compiler}
+{\em Cross-Compilation}.
+\newblock Disponível em
+  \url{https://www.gnu.org/software/automake/manual/html_node/Cross_002dCompilation.htmll},
+  Acessado em 12-02-2017.
+
+\bibitem{difference_c_1}
+{\em Difference Between C and C++ Programming Languages}.
+\newblock Disponível em
+  \url{http://techwelkin.com/difference-between-c-and-c-plus-plus}, Acessado em
+  12-02-2017.
+
+\bibitem{diffence_dsp}
+{\em Difference between DSP and Microcontroller}.
+\newblock Disponível em
+  \url{http://www.differencebetween.info/difference-between-dsp-and-microcontroller},
+  Acessado em 12-02-2017.
+
+\bibitem{dsp}
+{\em PROCESSADOR DIGITAL DE SINAIS - DSP}.
+\newblock Disponível em \url{http://www.cbpf.br/~rastuto/}, Acessado em
+  12-02-2017.
+
+\bibitem{rtos}
+{\em What is An RTOS?}
+\newblock Disponível em \url{https://www.arduino.cc/en/Products/Compare},
+  Acessado em 08-02-2017.
+
+\end{thebibliography}
