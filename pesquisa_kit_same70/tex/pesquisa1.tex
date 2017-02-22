@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage{cite}
+\usepackage{indentfirst}
+\usepackage{ragged2e}
+
+\setlength\RaggedRightParindent{15pt}
+
+\setlength\parindent{24pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+
+\newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1: #2}\vspace{.5em}\hrule\vspace{.10in}}
+\renewcommand\part[1]{\vspace{.10in}\textbf{(#1)}}
+\newcommand\algorithm{\vspace{.10in}\textbf{Algorithm: }}
+\newcommand\overview{\vspace{.10in}\textbf{Esboce um diagrama de blocos que ilustre a interação entre
+		o microcontrolador, hardware e firmware.}}
+\newcommand\microcontrolador{\vspace{.10in}\textbf{Identifique a família e e liste as especificidades do microcontrolador
+		utilizado no curso.}}
+\newcommand\memoria{\vspace{.10in}\textbf{Liste os tipos de memórias internas do microcontrolador
+		SAM-E70 e seus tamanhos.}}
+\newcommand\memoriatwo{\vspace{.10in}\textbf{Porque é importante saber quanto de memória um uC possui
+		?}}
+\newcommand\perifericos{\vspace{.10in}\textbf{Escolha um dos periféricos do microcontrolador (ADC, DAC,
+		TC, USB, Ethernet, . . . ) e explique sua funcionalidade.}}
+\newcommand\watchdog{\vspace{.10in}\textbf{O que é watchdog timer e qual é sua utilização ?}}
+\newcommand\custo{\vspace{.10in}\textbf{Pesquise nos fornecedores qual o valor de mercado do chip
+		utilizado no kit de desenvolvimento SAM-E70.}}
+\newcommand\jtag{\vspace{.10in}\textbf{Descreva como funciona a gravação via JTAG e porque é
+		bastante utilizada pela industria ?}}
+\newcommand\clock{\vspace{.10in}\textbf{Qual a relação do clock no consumo de energia em sistemas
+		eletrônicos ?}}
+\newcommand\volatile{\vspace{.10in}\textbf{O que são variáveis volatile/const/static ?}}
+\newcommand\makefile{\vspace{.10in}\textbf{O que é um makefile e qual a sua utilização ?}}
+\newcommand\ascii{\vspace{.10in}\textbf{O que é ASCII, e quando é utilizado ?}}
+\newcommand\cristal{\vspace{.10in}\textbf{Qual o valor do cristal utilizado no kit SAME-70 ?}}
+\pagestyle{fancyplain}
+\lhead{\textbf{\NAME\ }}
+\chead{\textbf{Kit de desenvolvimento SAME-70}}
+\rhead{\today}
+
+
+\begin{document}\raggedright
+%Section A==============Change the values below to match your information==================
+\newcommand\NAME{Marcelo G de Andrade}  % your name
+\newcommand\HWNUM{1}              % the homework number
+%Section B==============Put your answers to the questions below here=======================
+
+% no need to restate the problem --- the graders know which problem is which,
+% but replacing "The First Problem" with a short phrase will help you remember
+% which problem this is when you read over your homeworks to study.
+
+\question{1}{Overview}
+
+\part{1} \overview
+
+
+\RaggedRight 
+
+\raggedright
+\question{2}{SAM-E70 microcontrolador}
+
+\part{1}
+ \microcontrolador
+
+\RaggedRight
+Segundo o manual do SAME70-XPLD, o processador do microcontrolador é um ARM Cortex-M7, ou seja, arquitetura ARM da família Cortex-M. Esse microcontrolador contém uma arquitetura bus de 150MHz, 184 Kbytes de memória SRAM e 2048 Kbytes de memória flash. 
+
+\raggedright
+\part{2} 
+\memoriatwo
+
+\RaggedRight
+Em um sistema embarcado principalmente, os programas são feitos de modo optimizado para que seja necessário a menor quantidade de memória para que o custo seja o menor possível. É importante saber a memória de um microcontrolador para que se possa escolher o microcontrolador ideal de uma aplicação, a partir das necessidades da mesma, em especial, a memória requerida.
+
+\raggedright
+\part{3}
+\perifericos
+
+\RaggedRight
+O periférico escolhido é o botão mecânico. Há dois botões mecânicos no microcontrolador, o primeiro botão (SW100) é um botão de reset, ao ser pressionado, toda a placa quando ligada é reiniciada. O segundo botão (SW300) é um botão que, quando pressionado, faz com que o processador saia do modo low-power.
+
+\raggedright
+\part{4}
+\watchdog
+
+\RaggedRight
+Como é explicado em \cite{watchdog}, o Watchdog Timer é um oscilador que não necessita de quaisquer componentes externos. Essa característica faz com que ele tenha utilizações como sua execução mesmo que o clock esteja parado, por exemplo, ela execução de uma instrução SLEEP.
+
+\raggedright
+\part{5}
+\custo
+
+\RaggedRight
+Segundo \cite{cortexm7}, o preço de um processador ARM Cortex-M7 gira em torno de 15 dólares.
+
+\raggedright
+\question{3}{SAM-E70-XPLD hardware}
+
+\raggedright
+\part{1}
+\jtag
+
+\RaggedRight
+Como é analisado em \cite{jtag}, JTAG é um método de testes para circuitos integrados com intuito de examinar as conexões de pinos. Para facilitar esses testes, há células com acesso aos pinos, facilitando a conexão física aos mesmos. Esse tipo de teste integrado é muito utilizado na industria, pois facilita muito a conexão com inúmeros pinos de um circuito integrado, tornando a tarefa de testes muito mais simples.
+
+\raggedright
+\part{2}
+\clock
+
+\RaggedRight
+O clock está relacionado com a frequência da CPU, e , como visto em \cite{clock_energy}, o consumo de uma CPU está relacionado diretamente com a frequência do mesmo e o quadrado de sua tensão, portanto, quanto maior o clock de um sistema, maior seu consumo energético.
+
+\raggedright
+\part{3}
+\cristal
+
+\RaggedRight
+Segundo o manual do SAME70, o valor do cristal utilizado é de 12MHz.
+
+\raggedright
+\question{4}{Firmware - Especificidades}
+
+\raggedright
+\part{1}
+\volatile
+
+\RaggedRight
+Como é explicado em \cite{variables}, variáveis volatile são aquelas que podem ser modificas fora do escopo de uma função. Variáveis const são aquelas que não podem ter seu valor alterado, ou seja, são iniciadas com um valor inicial fixo. Por fim, as variáveis static são aquelas que existem durante todo programa, ou seja, tem um espaço de memória alocado no início do programa e continuam a existir em toda duração do mesmo.
+
+\raggedright
+\part{2}
+\makefile
+
+\RaggedRight
+Makefile é, segundo \cite{makefile}, um modo de organizar a compilação de seu código. Com isso, não é necessário executar um código extenso no terminal para compilação do seu código todas as vezes necessárias, o makefile é um arquivo que facilita essa compilação, organizando-a como um todo e facilitando a execução da compilação.
+
+\raggedright
+\part{3}
+\ascii
+
+\RaggedRight
+ASCII é, como visto em \cite{ascii}, a sigla referente a American Standard Code for Information Interchange, ou seja, uma tabela que traz uma referência numérica para cada caractere. Os sistemas computacionais só entendem números, portanto essa tabela é utilizada para converter números em caracteres, geralmente usando apenas 1 byte.
+
+\bibliography{ref}{}
+\bibliographystyle{plain}
+\end{document}

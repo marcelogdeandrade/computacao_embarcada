@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.6)  21 FEB 2017 11:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.6)  21 FEB 2017 12:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -456,43 +456,35 @@ Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
 \RaggedLeftParindent=\skip63
 \RaggedRightParindent=\skip64
 \JustifyingParindent=\skip65
-)
-(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count92
-\float@exts=\toks18
-\float@box=\box26
-\@float@everytoks=\toks19
-\@floatcapt=\box27
 ) (./pesquisa1.aux)
 \openout1 = `pesquisa1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count93
+\scratchcounter=\count92
 \scratchdimen=\dimen114
-\scratchbox=\box28
-\nofMPsegments=\count94
-\nofMParguments=\count95
-\everyMPshowfont=\toks20
-\MPscratchCnt=\count96
+\scratchbox=\box26
+\nofMPsegments=\count93
+\nofMParguments=\count94
+\everyMPshowfont=\toks18
+\MPscratchCnt=\count95
 \MPscratchDim=\dimen115
-\MPnumerator=\count97
-\makeMPintoPDFobject=\count98
-\everyMPtoPDFconversion=\toks21
+\MPnumerator=\count96
+\makeMPintoPDFobject=\count97
+\everyMPtoPDFconversion=\toks19
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -572,61 +564,51 @@ e
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 34.
-
-
-LaTeX Warning: Citation `eletrodermal' on page 1 undefined on input line 49.
-
-<fig1.jpg, id=1, 2729.19624pt x 3351.52126pt>
-File: fig1.jpg Graphic file (type jpg)
- <use fig1.jpg>
-Package pdftex.def Info: fig1.jpg used on input line 57.
-(pdftex.def)             Requested size: 328.82707pt x 403.80168pt.
+LaTeX Info: Redefining \selectfont on input line 50.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
- <./fig1.jpg>]
+] (./pesquisa1.bbl
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 6.
 
-LaTeX Warning: Citation `gsr_sensor' on page 2 undefined on input line 67.
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 6.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 6.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 6.
+ [2]
+Underfull \hbox (badness 10000) in paragraph at lines 21--25
+[]\T1/cmr/m/it/10.95 Does lowe-ring CPU clock fre-quency ex-tend bat-tery life?
+  \T1/cmr/m/n/10.95 Dis- 
+ []
 
 
-LaTeX Warning: Citation `biomedic_sensor' on page 2 undefined on input line 69.
+Underfull \hbox (badness 10000) in paragraph at lines 21--25
+\T1/cmr/m/n/10.95 po-ní-vel em $\T1/cmtt/m/n/10.95 https : / / www . luculentsy
+stems . com / techblog / 
+ []
 
-
-
-LaTeX Warning: Citation `biomedic_sensor' on page 2 undefined on input line 88.
-
-
-<fig2.jpg, id=9, 2362.8275pt x 3954.775pt>
-File: fig2.jpg Graphic file (type jpg)
- <use fig2.jpg>
-Package pdftex.def Info: fig2.jpg used on input line 95.
-(pdftex.def)             Requested size: 328.82707pt x 550.34576pt.
- [2] [3 <./fig2.jpg>]
-(./pesquisa1.bbl
-
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
-
-) [4] (./pesquisa1.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+) [3] (./pesquisa1.aux) ) 
 Here is how much of TeX's memory you used:
- 3335 strings out of 493029
- 43643 string characters out of 6136234
- 117323 words of memory out of 5000000
- 6814 multiletter control sequences out of 15000+600000
- 7035 words of font info for 19 fonts, out of 8000000 for 9000
+ 3315 strings out of 493029
+ 43657 string characters out of 6136234
+ 117740 words of memory out of 5000000
+ 6790 multiletter control sequences out of 15000+600000
+ 10477 words of font info for 29 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,11n,43p,587b,232s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf/
-fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf/fonts/type1/public/c
-m-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb
->
-Output written on pesquisa1.pdf (4 pages, 1519146 bytes).
+ 38i,10n,43p,470b,321s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1
+.enc}</usr/share/texmf/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/tex
+mf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/publi
+c/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1095.
+pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on pesquisa1.pdf (3 pages, 137741 bytes).
 PDF statistics:
- 32 PDF objects out of 1000 (max. 8388607)
- 20 compressed objects within 1 object stream
+ 35 PDF objects out of 1000 (max. 8388607)
+ 24 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

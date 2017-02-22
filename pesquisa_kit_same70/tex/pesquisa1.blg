@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: pesquisa1.aux
+The style file: plain.bst
+Database file #1: ref.bib
+Warning--to sort, need author, organization, or key in watchdog
+Warning--to sort, need author, organization, or key in cortexm7
+Warning--to sort, need author, organization, or key in jtag
+Warning--to sort, need author, organization, or key in clock_energy
+Warning--to sort, need author, organization, or key in variables
+Warning--to sort, need author, organization, or key in makefile
+Warning--to sort, need author, organization, or key in ascii
+You've used 7 entries,
+            2118 wiz_defined-function locations,
+            518 strings with 5064 characters,
+and the built_in function-call counts, 1030 in all, are:
+= -- 98
+> -- 7
+< -- 0
++ -- 8
+- -- 0
+* -- 51
+:= -- 128
+add.period$ -- 14
+call.type$ -- 7
+change.case$ -- 14
+chr.to.int$ -- 0
+cite$ -- 14
+duplicate$ -- 56
+empty$ -- 134
+format.name$ -- 0
+if$ -- 239
+int.to.chr$ -- 0
+int.to.str$ -- 7
+missing$ -- 0
+newline$ -- 31
+num.names$ -- 0
+pop$ -- 28
+preamble$ -- 1
+purify$ -- 14
+quote$ -- 0
+skip$ -- 42
+stack$ -- 0
+substring$ -- 36
+swap$ -- 7
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 28
+warning$ -- 7
+while$ -- 0
+width$ -- 8
+write$ -- 51
+(There were 7 warnings)
