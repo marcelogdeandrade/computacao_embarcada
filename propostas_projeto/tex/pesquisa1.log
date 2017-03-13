@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.6)  15 FEB 2017 22:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.6)  21 FEB 2017 11:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -574,6 +574,9 @@ e
 ABD: EverySelectfont initializing macros
 LaTeX Info: Redefining \selectfont on input line 34.
 
+
+LaTeX Warning: Citation `eletrodermal' on page 1 undefined on input line 49.
+
 <fig1.jpg, id=1, 2729.19624pt x 3351.52126pt>
 File: fig1.jpg Graphic file (type jpg)
  <use fig1.jpg>
@@ -582,6 +585,17 @@ Package pdftex.def Info: fig1.jpg used on input line 57.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
  <./fig1.jpg>]
+
+LaTeX Warning: Citation `gsr_sensor' on page 2 undefined on input line 67.
+
+
+LaTeX Warning: Citation `biomedic_sensor' on page 2 undefined on input line 69.
+
+
+
+LaTeX Warning: Citation `biomedic_sensor' on page 2 undefined on input line 88.
+
+
 <fig2.jpg, id=9, 2362.8275pt x 3954.775pt>
 File: fig2.jpg Graphic file (type jpg)
  <use fig2.jpg>
@@ -589,40 +603,30 @@ Package pdftex.def Info: fig2.jpg used on input line 95.
 (pdftex.def)             Requested size: 328.82707pt x 550.34576pt.
  [2] [3 <./fig2.jpg>]
 (./pesquisa1.bbl
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 5.
- (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 5.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 5.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 9--13
-[]\T1/cmr/m/it/10.95 Grove - GSR sen-sor\T1/cmr/m/n/10.95 .  Dis-po-ní-vel em $
-\T1/cmtt/m/n/10.95 https : / / www . seeedstudio . com / 
- []
+LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-) [4] (./pesquisa1.aux) ) 
+) [4] (./pesquisa1.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3373 strings out of 493029
- 44464 string characters out of 6136234
- 117286 words of memory out of 5000000
- 6841 multiletter control sequences out of 15000+600000
- 10477 words of font info for 29 fonts, out of 8000000 for 9000
+ 3335 strings out of 493029
+ 43643 string characters out of 6136234
+ 117323 words of memory out of 5000000
+ 6814 multiletter control sequences out of 15000+600000
+ 7035 words of font info for 19 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,11n,43p,587b,321s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1
-.enc}</usr/share/texmf/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/tex
-mf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/publi
-c/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1095.
-pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on pesquisa1.pdf (4 pages, 1571669 bytes).
+ 38i,11n,43p,587b,232s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf/
+fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf/fonts/type1/public/c
+m-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb
+>
+Output written on pesquisa1.pdf (4 pages, 1519146 bytes).
 PDF statistics:
- 40 PDF objects out of 1000 (max. 8388607)
- 26 compressed objects within 1 object stream
+ 32 PDF objects out of 1000 (max. 8388607)
+ 20 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

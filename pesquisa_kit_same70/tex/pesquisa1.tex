@@ -1,0 +1,145 @@
+\documentclass[11pt]{article}
+
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage[brazilian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage{cite}
+\usepackage{indentfirst}
+\usepackage{ragged2e}
+
+\setlength\RaggedRightParindent{15pt}
+
+\setlength\parindent{24pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\headheight}{13.6pt}
+
+\newcommand\question[2]{\vspace{.25in}\hrule\textbf{#1: #2}\vspace{.5em}\hrule\vspace{.10in}}
+\renewcommand\part[1]{\vspace{.10in}\textbf{(#1)}}
+\newcommand\perifericos{\vspace{.10in}\textbf{Liste a funcionalidade dos periféricos listados a seguir :
+		• RTC - Real time clock /
+		• TC - Timer/Counter}}
+\newcommand\memoria{\vspace{.10in}\textbf{Qual endereço de memória reservado para os periféricos
+		? Qual o tamanho (em endereço) dessa secção ?}}
+\newcommand\perifericostwo{\vspace{.10in}\textbf{Encontre os endereços de memória referentes aos seguintes
+		periféricos :
+		1. PIOA
+		2. PIOB
+		3. ACC
+		4. UART1
+		5. UART2}}
+\newcommand\memoriatwo{\vspace{.10in}\textbf{Porque é importante saber quanto de memória um uC possui
+		?}}
+\newcommand\piod{\vspace{.10in}\textbf{Qual ID do PIOC ?}}
+\newcommand\pioperiferico{\vspace{.10in}\textbf{Verifique quais periféricos podem ser configuráveis nos I/Os
+		:
+		1. PC1
+		2. PB6}}
+\newcommand\debouncing{\vspace{.10in}\textbf{O que é deboucing ? Descreva um algorítimo que implemente o deboucing.}}
+\newcommand\race{\vspace{.10in}\textbf{O que é race conditions ? Como que essa forma de configurar os registradores
+		evita isso?}}
+\newcommand\pinooutput{\vspace{.10in}\textbf{Explique com suas palavras o trecho anterior extraído
+		do datasheet do uC, se possível referencie com o diagrama
+		"I/O Line Control Logic".}}
+\pagestyle{fancyplain}
+\lhead{\textbf{\NAME\ }}
+\chead{\textbf{Pesquisa
+		PIO Output}}
+\rhead{\today}
+
+
+\begin{document}\raggedright
+%Section A==============Change the values below to match your information==================
+\newcommand\NAME{Marcelo G de Andrade}  % your name
+\newcommand\HWNUM{1}              % the homework number
+%Section B==============Put your answers to the questions below here=======================
+
+% no need to restate the problem --- the graders know which problem is which,
+% but replacing "The First Problem" with a short phrase will help you remember
+% which problem this is when you read over your homeworks to study.
+
+\question{1}{Periféricos}
+
+\part{1} 
+\perifericos
+
+\RaggedRight 
+Segundo o manual do SAME70, o Real Time clock é o periférico responsável por manter controle do tempo presente, ou seja, como o nome diz, um circuito integrado que simula um relógio no microcontrolador. Sua principal função é conseguir dizer o horário atual quando requisitado.
+
+Ja o timer/counter é um periférico especializado em contar intervalos de tempo, ou seja, usado para verificar o tempo de execução de algum evento.
+
+\raggedright
+\part{2} 
+\memoria
+
+O endereço de memória reservado para os periéricos, como pode ser visto na figura da página 41 do manual do Cortex M7, é o 0x40000000. O tamanho dessa seção é de 30bits.
+
+\raggedright
+\part{3} 
+\perifericostwo
+
+\RaggedRight
+Como é listado no manual do Cortex M7, os endereços de memória são os seguintes:
+
+PIOA = 0x400E0E00
+
+PIOB = 0x400E1000
+
+ACC = 0x40044000
+
+UART1 = 0x400E0A00
+
+UART2 = 0x400E1A00
+
+
+\raggedright
+\question{2}{PMC - Gerenciador de energia}
+
+\raggedright
+\part{1}
+\piod
+
+\RaggedRight
+O id do PIOC, segundo o manual do Cortex M7, é 12.
+
+\raggedright
+\question{3}{Parallel Input Output (PIO)}
+
+\raggedright
+\part{1}
+\pioperiferico
+
+\RaggedRight
+Para o I/O PC1, segundo o manual do Cortex M7, podem ser configuráveis os periféricos D1 e PWMC0 PWML1 
+
+Já no I/O PB6, não há nenhum periférico configurável.
+
+\raggedright
+\part{2}
+\debouncing
+
+\RaggedRight
+Como pode ser visto em \cite{debouncing}, debouncing seria um tipo de hardware ou software que assegura um único sinal digital quando um contato for aberto ou fechado, isso é necessário pois há um fenômeno chamado bouncing, no contato de dois metais em um dispositivo eletrônico, há uma tendência que sejam gerados múltiplos sinais digitais em vez de um só.
+
+\raggedright
+\part{3}
+\race
+
+\RaggedRight
+Segundo \cite{race_condition}, race conditions são situações em que um computador ou sistema eletrônico tenta ler ou alterar uma quantidade de dados recebidas quase ao mesmo tempo, assim o sistema tenta sobrescrever os dados enquanto dados antigos ainda estão sendo lidos. Esse fenômeno pode resultar em um travamento do sistema, "operação ilegal", encerramento do sistema, erros de leitura dos dados antigos ou erros na alteração dos novos dados.
+
+Com essa configuração de registradores, não há conflitos de leitura ou alteração de dados por um mesmo registrador, cada registrador fica responsável por executar uma tarefa específica, por exemplo: PIO\char`_CODR é responsável apenas pelo clear do pino e PIO\char`_SODR é responsável apenas pela gravação do pino.
+
+\raggedright
+\part{4}
+\pinooutput
+
+\RaggedRight
+Esse trecho explica a função de alguns registradores na configurações de pinos. Primeiramente podemos atribuir um valor nos registradores PIO\char`_ABCDSR1 e PIO\char`_ABCDSR2 para determinar se o controlador PIO irá energizar o pino. Após isso, pode-se configurar se um pino será de entrada ou saída com os registradores PIO\char`_OER e PIO\char`_ODR. Por fim, deve-se usar o registrador PIO\char`_CODR para gravar um valor no pino ou PIO\char`_SODR para zerar esse valor, assim determinado o valor de saída do pino.
+
+\bibliography{ref}{}
+\bibliographystyle{plain}
+\end{document}

@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: pesquisa1.aux
+The style file: plain.bst
+Database file #1: ref.bib
+Warning--to sort, need author, organization, or key in brainwaves_project
+Warning--empty journal in make_mind_controlled
+You've used 2 entries,
+            2118 wiz_defined-function locations,
+            504 strings with 4268 characters,
+and the built_in function-call counts, 367 in all, are:
+= -- 33
+> -- 8
+< -- 0
++ -- 4
+- -- 2
+* -- 17
+:= -- 64
+add.period$ -- 5
+call.type$ -- 2
+change.case$ -- 6
+chr.to.int$ -- 0
+cite$ -- 4
+duplicate$ -- 18
+empty$ -- 37
+format.name$ -- 2
+if$ -- 75
+int.to.chr$ -- 0
+int.to.str$ -- 2
+missing$ -- 1
+newline$ -- 12
+num.names$ -- 2
+pop$ -- 10
+preamble$ -- 1
+purify$ -- 5
+quote$ -- 0
+skip$ -- 13
+stack$ -- 0
+substring$ -- 10
+swap$ -- 1
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 8
+warning$ -- 2
+while$ -- 2
+width$ -- 3
+write$ -- 18
+(There were 2 warnings)
