@@ -248,7 +248,7 @@ void RTC_Handler(void)
 				      ano++;
 			      }
 			      else{
-				      mes++:
+				      mes++;
 			      }
 			      
 		      }
@@ -257,7 +257,7 @@ void RTC_Handler(void)
 		      }
 	      }
 	      else{
-		      hora++:
+		      hora++;
 	      }
       }
       else{
