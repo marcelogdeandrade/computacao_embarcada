@@ -23,25 +23,6 @@
 #define USART_COM     USART1
 #define USART_COM_ID  ID_USART1
 
-
-/************************************************************************/
-/* XDMA CONFIG */
-/************************************************************************/
-/** XDMAC channel used in this example. */
-#define XDMAC_TX_CH 0
-#define XDMAC_RX_CH 1
-
-/** XDMAC channel HW Interface number for SPI0,refer to datasheet. */
-#define USART_XDMAC_TX_CH_NUM 9
-#define USART_XDMAC_RX_CH_NUM 10
-
-/** XDMA peripheral interface*/
-/** XDMA peripheral interface*/
-#define USART_XDMA_DEST_REG &CONSOLE_UART->US_THR // Mem Two Peripheral
-#define USART_XDMA_ORIG_REG &CONSOLE_UART->US_RHR // Peripheral Two Mem
-/** The buffer size for transfer */
-#define BUFFER_SIZE 100
-
 /************************************************************************/
 /* VAR globais                                                          */
 /************************************************************************/
@@ -51,22 +32,6 @@
  
  /* buffer para transmissão de dados */
  uint8_t bufferTX[100];
-
-
- /** XDMAC channel configuration. */
- static xdmac_channel_config_t g_xdmac_tx_cfg;
- static xdmac_channel_config_t g_xdmac_rx_cfg;
- /**
- * XDMA
- */
- uint8_t g_tx_buffer[] = "This is message from USART mastertransferred by XDMAC test \n";
- uint8_t g_rx_buffer[BUFFER_SIZE] = "0";
- uint32_t g_buffer_size = sizeof(g_tx_buffer);
- /************************************************************************/
- /* Flags */
- /************************************************************************/
- volatile uint8_t flag_led0 = 1;
- volatile uint8_t flag_rx = 0;
 
 /************************************************************************/
 /* PROTOTYPES                                                           */
@@ -158,8 +123,8 @@ static void USART1_init(void){
   
   /* Configura USART para operar em modo RS232 */
   usart_init_rs232(USART_COM, &usart_settings, sysclk_get_peripheral_hz());
- //usart_enable_interrupt(USART_COM, US_IER_RXRDY); 
-  //NVIC_EnableIRQ(USART_COM_ID);
+  usart_enable_interrupt(USART_COM, US_IER_RXRDY); 
+  NVIC_EnableIRQ(USART_COM_ID);
   /* Enable the receiver and transmitter. */
 	usart_enable_tx(USART_COM);
 	usart_enable_rx(USART_COM);
@@ -203,121 +168,6 @@ uint32_t usart_gets(uint8_t *pstring){
   return 0;  
 }
 
-/*
- * Uart - Xdmac Configure 
- *
- *
- */
-
-static void uart_xdmac_configure()
-{
-	uint32_t xdmaint;
-	/* Initialize and enable DMA controller */
-	pmc_enable_periph_clk(ID_XDMAC);
-	xdmaint = ( XDMAC_CIE_BIE |
-	XDMAC_CIE_DIE |
-	XDMAC_CIE_FIE |
-	XDMAC_CIE_RBIE |
-	XDMAC_CIE_WBIE |
-	XDMAC_CIE_ROIE);
-	xdmac_channel_enable_interrupt(XDMAC, XDMAC_TX_CH, xdmaint);
-	xdmac_enable_interrupt(XDMAC, XDMAC_TX_CH);
-	xdmac_channel_enable_interrupt(XDMAC, XDMAC_RX_CH, xdmaint);
-	xdmac_enable_interrupt(XDMAC, XDMAC_RX_CH);
-	/*Enable XDMAC interrupt */
-	NVIC_ClearPendingIRQ(XDMAC_IRQn);
-	NVIC_SetPriority( XDMAC_IRQn ,1);
-	NVIC_EnableIRQ(XDMAC_IRQn);
-}
-
-/*
-45.6.10.12 / pg. 1185
-The DMA uses the trigger flags, TXRDY and RXRDY, to write or read into the USART. The DMA always writes in
-the Transmit Holding register (US_THR) and it always reads in the Receive Holding register (US_RHR). The size
-of the data written or read by the DMA in the USART is always a byte
-*/
-static void uart_xdmac_Tx(uint32_t *peripheral_address, uint32_t *orgin_address, uint32_t buffer_size)
-{
-	/* Initialize channel config for transmitter */
-	g_xdmac_tx_cfg.mbr_ubc = buffer_size;
-	g_xdmac_tx_cfg.mbr_sa = (uint32_t)orgin_address;
-	g_xdmac_tx_cfg.mbr_da = (uint32_t)peripheral_address;
-	g_xdmac_tx_cfg.mbr_cfg =	XDMAC_CC_TYPE_PER_TRAN |
-								XDMAC_CC_MBSIZE_SINGLE |
-								XDMAC_CC_DSYNC_MEM2PER |
-								XDMAC_CC_CSIZE_CHK_1 |
-								XDMAC_CC_DWIDTH_BYTE |
-								XDMAC_CC_SIF_AHB_IF0 |
-								XDMAC_CC_DIF_AHB_IF1 |
-								XDMAC_CC_SAM_INCREMENTED_AM |
-								XDMAC_CC_DAM_FIXED_AM |
-								XDMAC_CC_PERID(USART_XDMAC_TX_CH_NUM);
-	g_xdmac_tx_cfg.mbr_bc = 0;
-	g_xdmac_tx_cfg.mbr_ds = 0;
-	g_xdmac_tx_cfg.mbr_sus = 0;
-	g_xdmac_tx_cfg.mbr_dus = 0;
-	xdmac_configure_transfer(XDMAC, XDMAC_TX_CH, &g_xdmac_tx_cfg);
-	xdmac_channel_set_descriptor_control(XDMAC, XDMAC_TX_CH, 0);
-	xdmac_channel_enable(XDMAC, XDMAC_TX_CH);
-}
-
-static void uart_xdmac_Rx(uint32_t *peripheral_address, uint32_t *orgin_address, uint32_t buffer_size)
-{
-	/* Initialize channel config for receiver */
-	g_xdmac_rx_cfg.mbr_ubc = buffer_size;
-	g_xdmac_rx_cfg.mbr_da = (uint32_t)orgin_address;
-	g_xdmac_rx_cfg.mbr_sa = (uint32_t)peripheral_address;
-	g_xdmac_rx_cfg.mbr_cfg = XDMAC_CC_TYPE_PER_TRAN |
-	XDMAC_CC_MBSIZE_SINGLE |
-	XDMAC_CC_DSYNC_PER2MEM |
-	XDMAC_CC_CSIZE_CHK_1 |
-	XDMAC_CC_DWIDTH_BYTE|
-	XDMAC_CC_SIF_AHB_IF1 |
-	XDMAC_CC_DIF_AHB_IF0 |
-	XDMAC_CC_SAM_FIXED_AM |
-	XDMAC_CC_DAM_INCREMENTED_AM |
-	XDMAC_CC_PERID(USART_XDMAC_RX_CH_NUM);
-	g_xdmac_rx_cfg.mbr_bc = 0;
-	g_xdmac_tx_cfg.mbr_ds = 0;
-	g_xdmac_rx_cfg.mbr_sus = 0;
-	g_xdmac_rx_cfg.mbr_dus =0;
-	xdmac_configure_transfer(XDMAC, XDMAC_RX_CH, &g_xdmac_rx_cfg);
-	xdmac_channel_set_descriptor_control(XDMAC, XDMAC_RX_CH, 0);
-	xdmac_channel_enable(XDMAC, XDMAC_RX_CH);
-}
-
-/**
-* \brief XDMAC interrupt handler.
-*/
-void XDMAC_Handler(void)
-{
-	uint32_t dma_status_tx, dma_status_rx;
-	dma_status_tx = xdmac_channel_get_interrupt_status(XDMAC, XDMAC_TX_CH);
-	dma_status_rx = xdmac_channel_get_interrupt_status(XDMAC, XDMAC_RX_CH);
-	UNUSED(dma_status_tx);
-	UNUSED(dma_status_rx);
-	// Verificamos se a transferência foi completa
-	if(dma_status_rx & (XDMAC_CIS_BIS | XDMAC_CIS_LIS)){
-		flag_rx = 1;
-	}
-}
-
-/*
- * Puts string pela DMA
- *
- */
-usart_puts_dma(uint8_t *input, uint32_t input_size){
-		uart_xdmac_Tx(USART_XDMA_DEST_REG,(uint32_t) input, input_size);
-}
-
-/*
- * Gets string pela DMA
- *
- *
- */
-usart_gets_dma(uint8_t *pstring, int nChars){
-	
-}
 /************************************************************************/
 /* Main Code	                                                        */
 /************************************************************************/
@@ -341,18 +191,10 @@ int main(void){
  
   /* Inicializa funcao de delay */
   delay_init( sysclk_get_cpu_hz());
-
-  /* Configura o DMA */
-  uart_xdmac_configure();
-
+        
 	while (1) {
-	uint8_t input[] = "Ola galera, esse eh um teste \n";
-	uint32_t input_size = sizeof(input);
-	usart_puts_dma(input, input_size);
-	if (flag_rx){
-		printf("%s", g_rx_buffer);
-		flag_rx = 0;
-	}
+    sprintf(bufferTX, "%s \n", "Ola Voce");
+    usart_puts(bufferTX);
     delay_s(1);
 	}
 }
