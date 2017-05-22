@@ -40,6 +40,9 @@ volatile bool has_passed_second = false;
 /** The conversion data value */
 volatile uint32_t g_ul_value = 0;
 
+/*Atualiza hora */
+volatile uint32_t ano,mes,dia,hora,minuto,segundo;
+
 /* Canal do sensor de temperatura */
 #define AFEC_CHANNEL_TEMP_SENSOR 11
 
@@ -153,6 +156,13 @@ static void AFEC_Temp_callback(void)
 
 	/** Muda o estado do LED */
 	has_passed_second = !has_passed_second;
+	rtc_get_date(RTC, &ano, &mes, &dia, NULL);
+	rtc_get_time(RTC, &hora, &minuto, &segundo);
+	printf("%02dh%02d : Temperatura Interna %dC \r\n",
+			hora,
+			minuto,
+			(uint32_t) convert_adc_to_temp(g_ul_value));
+	afec_start_software_conversion(AFEC0);
 }
 
 void RTC_init(){
@@ -165,77 +175,9 @@ void RTC_init(){
 	/* Configura data e hora manualmente */
 	rtc_set_date(RTC, YEAR, MOUNTH, DAY, WEEK);
 	rtc_set_time(RTC, HOUR, MINUTE, SECOND);
-
-	/* Configure RTC interrupts */
-	NVIC_DisableIRQ(RTC_IRQn);
-	NVIC_ClearPendingIRQ(RTC_IRQn);
-	NVIC_SetPriority(RTC_IRQn, 0);
-	NVIC_EnableIRQ(RTC_IRQn);
-	
-	/* Ativa interrupcao via alarme */
-	rtc_enable_interrupt(RTC,  RTC_IER_ALREN);
 	
 }
 
-void RTC_Handler(void)
-{
-	uint32_t ul_status = rtc_get_status(RTC);
-
-	/* Second increment interrupt */
-	if ((ul_status & RTC_SR_SEC) == RTC_SR_SEC) {
-		
-		rtc_clear_status(RTC, RTC_SCCR_SECCLR);
-
-		} else {
-		/* Time or date alarm */
-		if ((ul_status & RTC_SR_ALARM) == RTC_SR_ALARM) {
-			
-			/*Atualiza hora */
-			uint32_t ano,mes,dia,hora,minuto,segundo;
-			
-			rtc_get_date(RTC, &ano, &mes, &dia, NULL);
-			rtc_get_time(RTC, &hora, &minuto, &segundo);
-			
-			/* incrementa minuto */
-			if(segundo >= 59){
-						if(minuto>59){
-							minuto = 0;
-							if(hora>23){
-								hora = 0;
-								if(dia>30){
-									dia = 1;
-									if(mes>12){
-										mes = 1;
-										ano++;
-									}
-									else{
-										mes++;
-									}
-									
-								}
-								else{
-									dia++;
-								}
-							}
-							else{
-								hora++;
-							}
-						}
-						else{
-							minuto++;
-						}
-			} else {
-				segundo ++;
-			}
-			      /* configura novo alarme do RTC */
-			      rtc_set_date_alarm(RTC, 1, mes, 1, dia);
-			      rtc_set_time_alarm(RTC, 1, hora, 1, minuto, 1, segundo);
-			rtc_clear_status(RTC, RTC_SCCR_ALRCLR);
-
-
-		}
-	}
-}
 
 int main(void)
 {
@@ -312,11 +254,5 @@ int main(void)
 
 	while (1) {
 
-	  if( has_passed_second == true){
-		  has_passed_second = false;
-	  	  afec_start_software_conversion(AFEC0);
-	  	  int32_t temp = convert_adc_to_temp(g_ul_value);
-	  	  printf("Temp : %d %d \r\n", SECOND, (int) temp );
-	  }
 	}
 }
